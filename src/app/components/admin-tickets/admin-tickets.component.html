@@ -1,0 +1,109 @@
+<div><header id="default_header" class="header_style_1">
+  <!-- header bottom -->
+  <div class="header_bottom"  style="background-color: #1C1C1C;">
+    <div class="container" >
+      <div class="row">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+          <!-- logo start -->
+          <div class="logo" style="padding-left: 75px;"><img src="assets/images/it_service/logo.png" alt="logo" /> </div>
+        </div>
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+          <!-- menu start -->
+          <div class="menu_side">
+            <div id="navbar_menu">
+              <ul class="first-ul">
+                <li> <a routerLink="/adminDashboard">Admin-Dashboard</a></li>
+                <li> <a class="active" routerLink="/adminTickets">Admin-Ticket</a></li>
+                <li> <a routerLink="/addCustomer">Add Customers</a></li>
+                <li> <a routerLink="/customerManagement">Customer Details</a></li>
+                <li> <a routerLink="/login" class="btn101">logout</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- menu end -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- header bottom end -->
+</header>
+  <hr style="border: 65px solid #039ee3;">
+  <div>
+    <h2>Prepaid tickets</h2>
+    <table>
+      <tr >
+        <th>Ticket Id</th>
+        <th>Phone</th>
+        <th>Plan Category</th>
+        <th>Ticket</th>
+        <th>Status</th>
+        <th>Response</th>
+      </tr>
+      <tr *ngFor="let ticket of ticketlistPre">
+        <td>{{ticket.ticketId}}</td>
+
+        <td>{{ticket.phone}}</td>
+        <td>{{ticket.planCategory}}</td>
+        <td>{{ticket.ticket}}</td>
+        <td>{{ticket.status}}</td>
+        <td><button  (click)="updateStatus(ticket.ticketId)" >
+
+          Change Status</button></td>
+      </tr>
+    </table>
+    <br>
+  </div>
+
+  <div>
+    <h2>Postpaid tickets</h2>
+    <table>
+      <tr >
+        <th>Ticket Id</th>
+
+        <th>Phone</th>
+        <th>Plan Category</th>
+        <th>Ticket</th>
+        <th>Status</th>
+        <th>Response</th>
+      </tr>
+      <tr *ngFor="let ticket of ticketlistPost">
+        <td>{{ticket.ticketId}}</td>
+
+        <td>{{ticket.phone}}</td>
+        <td>{{ticket.planCategory}}</td>
+        <td>{{ticket.ticket}}</td>
+        <td>{{ticket.status}}</td>
+        <td><button  (click)="updateStatus(ticket.ticketId)" >
+
+          Change Status</button></td>
+      </tr>
+    </table>
+    <br>
+  </div>
+
+  <div>
+    <h2>Broadband tickets</h2>
+    <table>
+      <tr >
+        <th>Ticket Id</th>
+        <th>Phone</th>
+        <th>Plan Category</th>
+        <th>Ticket</th>
+        <th>Status</th>
+        <th>Response</th>
+      </tr>
+      <tr *ngFor="let ticket of ticketlistBroad">
+        <td>{{ticket.ticketId}}</td>
+
+        <td>{{ticket.phone}}</td>
+        <td>{{ticket.planCategory}}</td>
+        <td>{{ticket.ticket}}</td>
+        <td>{{ticket.status}}</td>
+        <td><button  (click)="updateStatus(ticket.ticketId)" >
+
+          Change Status</button></td>
+      </tr>
+    </table>
+    <br>
+  </div>
+</div>

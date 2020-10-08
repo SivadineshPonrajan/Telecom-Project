@@ -1,0 +1,33 @@
+@import "../../../assets/css/style.css";
+@import "../../../assets/css/colors1_dark.css";
+
+.primcol{
+  color: #039ee3;
+}
+
+.topBot{
+  padding-top: 60px;
+  padding-bottom: 50px;
+}
+
+.moveRight{
+  padding-left: 75px;
+}
+
+button{
+  padding: 10px;
+}
+
+hr .line{
+  border: 75px solid #039ee3;
+}
+
+.btn101{
+  color: white;
+  background-color: #039ee3;
+  border-radius: 10px;
+}
+
+.btn101:hover{
+  background-color: white;
+}

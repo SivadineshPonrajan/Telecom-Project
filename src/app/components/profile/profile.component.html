@@ -1,0 +1,74 @@
+<div class="whole">
+  <header id="default_header" class="header_style_1">
+    <!-- header bottom -->
+    <div class="header_bottom"  style="background-color: #1C1C1C;">
+      <div class="container" >
+        <div class="row">
+          <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <!-- logo start -->
+            <div class="logo" style="padding-left: 75px;"><img src="assets/images/it_service/logo.png" alt="logo" /> </div>
+            <!--            <div class="logo"> <a href="it_home.html"><img src="assets/images/logos/it_logo.png" alt="logo" /></a> </div>-->
+            <!-- logo end -->
+          </div>
+          <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+            <!-- menu start -->
+            <div class="menu_side">
+              <div id="navbar_menu">
+                <ul class="first-ul">
+                  <li> <a routerLink="/dashboard">Dashboard</a></li>
+                  <li> <a routerLink="/order">Orders</a></li>
+                  <li> <a routerLink="/tickets">Tickets</a></li>
+                  <li> <a class="active" routerLink="/profile">My Profile</a></li>
+                  <li> <a routerLink="/login" class="btn101">logout</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- menu end -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- header bottom end -->
+  </header>
+  <hr style="border: 65px solid #039ee3;">
+  <br>
+  <div class="full">
+    <div class="main_heading text_align_center">
+      <h2>User Details</h2>
+    </div>
+  </div>
+  <div class="col-md-2 mx-auto foll">
+  <h4>Username: {{custName}}</h4>
+  <h4>DOB: {{dob}}</h4>
+  <h4>Address: {{address}}</h4>
+  <h4>Gender: {{gender}}</h4>
+  <h4>Email:<br> {{email}}</h4>
+  <h4>Phone: {{phone}}</h4>
+</div>
+  <hr style="border: 1px solid #039ee3; margin-top: 60px;">
+  <div class="full" style="margin-top: 85px;">
+    <div class="main_heading text_align_center">
+      <h2>Edit User Details</h2>
+    </div>
+  </div>
+  <div class="col-md-2 mx-auto foll">
+  <label for="custName">Name </label><br>
+  <input type="text" [(ngModel)]="custName" id="custName" placeholder="Enter username"><br>
+  <br>
+    <label for="dob">DOB:&nbsp;</label><p id="dob">{{dob}}</p>
+  <br>
+  <label for="address">Address:&nbsp;</label><br>
+  <p id="address">{{address}}</p>
+  <br>
+  <label for="gender">Gender </label><br>
+  <input type="text" [(ngModel)]="gender" id="gender" placeholder="Enter Gender"><br>
+  <br>
+  <label for="email">Email ID </label><br>
+  <input type="email" [(ngModel)]="email" id="email" placeholder="Enter Email-id"><br>
+  <br>
+  <label for="phone">Phone:&nbsp;</label>
+  <p id="phone">{{phone}}</p><br>
+  <button (click)="updateCustomerProfile()">Update Profile Details</button>
+    <br><br><br>
+</div>
+</div>

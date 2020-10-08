@@ -1,0 +1,53 @@
+<div class="container col-sm-4">
+  <h4 style="margin-top: 50px;padding:20px;">Apply for new services</h4>
+  <form [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="fname">Name</label><br>
+      <input [class.is-invalid]="adminForm.get('firstName').invalid && adminForm.get('firstName').touched"
+             type="text" id="fname" class="form-control" formControlName="firstName" placeholder="Enter name">
+      <div *ngIf="adminForm.get('firstName').invalid && adminForm.get('firstName').touched">
+        <small ngIf="adminForm.get('firstName').errors?.required" class="text-danger">*Name is required</small>
+        <small *ngIf="adminForm.get('firstName').errors?.minlength" class="text-danger">Name must be atleast 5 characters</small>
+      </div>
+      <label for="dob">Date Of Birth</label><br>
+      <input [class.is-invalid]="adminForm.get('dob').invalid && adminForm.get('dob').touched"
+             type="text" pattern="([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))" id="dob" class="form-control" formControlName="dob" placeholder="YYYY-MM-DD">
+      <div *ngIf="adminForm.get('dob').invalid && adminForm.get('dob').touched">
+        <small ngIf="adminForm.get('dob').errors?.required" class="text-danger">*Date Of Birth is required</small>
+        <small *ngIf="adminForm.get('dob').errors?.pattern" class="text-danger">Date of birth is invalid</small>
+      </div>
+
+
+      <label for="adr"> Address</label><br>
+      <input [class.is-invalid]="adminForm.get('address').invalid && adminForm.get('address').touched"
+             type="text" id="adr" class="form-control" formControlName="address" placeholder="Enter address">
+      <div *ngIf="adminForm.get('address').invalid && adminForm.get('address').touched">
+        <small ngIf="adminForm.get('address').errors?.required" class="text-danger">*Address is required</small>
+        <small *ngIf="adminForm.get('address').errors?.minlength" class="text-danger">Address must be atleast 10 characters</small>
+      </div>
+
+      <label for="gender">Gender</label><br>
+      <input [class.is-invalid]="adminForm.get('gender').invalid && adminForm.get('gender').touched"
+             type="text" id="gender" class="form-control" formControlName="gender" placeholder="Enter gender">
+      <small [class.d-none]="adminForm.get('gender').valid || adminForm.get('gender').untouched" class="text-danger">**Gender is required</small><br>
+
+      <label for="email"> Email</label><br>
+      <input  [class.is-invalid]="adminForm.get('email').invalid && adminForm.get('email').touched"
+              type="text" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" id="email" class="form-control" formControlName="email" placeholder="Enter email">
+      <div *ngIf="adminForm.get('email').invalid && adminForm.get('email').touched">
+        <small ngIf="adminForm.get('email').errors?.required" class="text-danger">*Email is required</small>
+        <small *ngIf="adminForm.get('email').errors?.pattern" class="text-danger">Enter valid email</small>
+      </div>
+
+      <label for="phone">Phone number</label><br>
+      <input  [class.is-invalid]="adminForm.get('phone').invalid && adminForm.get('phone').touched"
+              type="text" pattern="[0-9]{10}" id="phone" class="form-control" formControlName="phone" placeholder="Enter phone no">
+      <div *ngIf="adminForm.get('phone').invalid && adminForm.get('phone').touched">
+        <small ngIf="adminForm.get('phone').errors?.required" class="text-danger">*Phone number is required</small>
+        <small *ngIf="adminForm.get('phone').errors?.pattern" class="text-danger">Enter valid phone number</small>
+      </div>
+    </div>
+    <button type="submit" [disabled]="!adminForm.valid">Register</button>
+    <button style="margin-left: 30px;" (click)="home()">Back to Home</button>
+  </form>
+</div>

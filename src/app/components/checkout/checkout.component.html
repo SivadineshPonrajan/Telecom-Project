@@ -1,0 +1,93 @@
+<div class="gist" style="text-align: center; margin-top: 60px;">
+  <h4><u>Selected Plan Details:</u></h4>
+  <br>
+  <h4>Plan Name: {{pname}}</h4>
+  <h4>Plan Cost: {{pcost}} INR</h4>
+  <h4>Plan Validity: {{pvalid}} days</h4>
+  <h4>Plan Category: {{pcat}}</h4>
+</div>
+<div class="container col-sm-8" style="margin-top: 80px;" >
+  <form [formGroup]="userBillingForm" (ngSubmit)="onSubmit()">
+    <div class="form-group row">
+      <div class="col-md-6">
+      <h3>Billing Address</h3>
+      <label for="fname"> Full Name</label><br>
+      <input [class.is-invalid]="userBillingForm.get('firstName').invalid && userBillingForm.get('firstName').touched"
+             type="text" id="fname" class="form-control" formControlName="firstName" placeholder="Enter name here">
+      <div *ngIf="userBillingForm.get('firstName').invalid && userBillingForm.get('firstName').touched">
+        <small ngIf="userBillingForm.get('firstName').errors?.required" class="text-danger">*Name is required</small>
+        <small *ngIf="userBillingForm.get('firstName').errors?.minlength" class="text-danger">Name must be atleast 5 characters</small>
+      </div><br>
+
+
+      <label for="email"> Email</label><br>
+      <input  [class.is-invalid]="userBillingForm.get('email').invalid && userBillingForm.get('email').touched"
+              type="text" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" id="email" class="form-control" formControlName="email" placeholder="Enter email">
+      <div *ngIf="userBillingForm.get('email').invalid && userBillingForm.get('email').touched">
+        <small ngIf="userBillingForm.get('email').errors?.required" class="text-danger">*Email is required</small>
+        <small *ngIf="userBillingForm.get('email').errors?.pattern" class="text-danger">Enter valid email</small>
+      </div><br>
+
+      <label for="adr"> Address</label><br>
+      <input [class.is-invalid]="userBillingForm.get('address').invalid && userBillingForm.get('address').touched"
+             type="text" id="adr" class="form-control" formControlName="address" placeholder="Enter address">
+      <div *ngIf="userBillingForm.get('address').invalid && userBillingForm.get('address').touched">
+        <small ngIf="userBillingForm.get('address').errors?.required" class="text-danger">*Address is required</small>
+        <small *ngIf="userBillingForm.get('address').errors?.minlength" class="text-danger">Address must be atleast 10 characters</small>
+      </div><br>
+
+      <label for="city"> City</label><br>
+      <input [class.is-invalid]="userBillingForm.get('city').invalid && userBillingForm.get('city').touched"
+             type="text" id="city" class="form-control" formControlName="city" placeholder="Enter city">
+      <small [class.d-none]="userBillingForm.get('city').valid || userBillingForm.get('city').untouched" class="text-danger">**City is required</small><br>
+
+
+      <label for="state">State</label><br>
+      <input [class.is-invalid]="userBillingForm.get('state').invalid && userBillingForm.get('state').touched"
+             type="text" id="state" class="form-control" formControlName="state" placeholder="Enter state">
+      <small [class.d-none]="userBillingForm.get('state').valid || userBillingForm.get('state').untouched" class="text-danger">**State is required</small><br>
+
+      <label for="zip">Zip</label><br>
+      <input [class.is-invalid]="userBillingForm.get('zip').invalid && userBillingForm.get('zip').touched"
+             type="text" id="zip" class="form-control" formControlName="zip" placeholder="Zip code">
+      <small [class.d-none]="userBillingForm.get('zip').valid || userBillingForm.get('zip').untouched" class="text-danger">**Zip code is required</small><br>
+      </div>
+      <div class="col-md-6">
+      <h3>Payment</h3>
+
+      <label for="cname">Name on Card</label><br>
+      <input [class.is-invalid]="userBillingForm.get('cardname').invalid && userBillingForm.get('cardname').touched"
+             type="text" id="cname" class="form-control" formControlName="cardname">
+      <small [class.d-none]="userBillingForm.get('cardname').valid || userBillingForm.get('cardname').untouched" class="text-danger">**Name on card is required</small><br>
+
+      <label for="ccnum">Credit card number</label><br>
+      <input [class.is-invalid]="userBillingForm.get('cardnumber').invalid && userBillingForm.get('cardnumber').touched"
+             type="text" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}"  id="ccnum" class="form-control" formControlName="cardnumber" placeholder="Ex: 5677-3323-8970-0801">
+      <div *ngIf="userBillingForm.get('cardnumber').invalid && userBillingForm.get('cardnumber').touched">
+        <small ngIf="userBillingForm.get('cardnumber').errors?.required" class="text-danger">*Card number is required</small>
+        <small *ngIf="userBillingForm.get('cardnumber').errors?.pattern" class="text-danger">Card number is invalid</small>
+      </div><br>
+
+      <label for="expmonth">Expiry Month</label><br>
+      <input [class.is-invalid]="userBillingForm.get('expmonth').invalid && userBillingForm.get('expmonth').touched"
+             type="text" id="expmonth" class="form-control" formControlName="expmonth" >
+      <small [class.d-none]="userBillingForm.get('expmonth').valid || userBillingForm.get('expmonth').untouched" class="text-danger">**Expiry month is required</small><br>
+
+      <label for="expyear">Expiry Year</label><br>
+      <input [class.is-invalid]="userBillingForm.get('expyear').invalid && userBillingForm.get('expyear').touched"
+             type="text" id="expyear" class="form-control" formControlName="expyear">
+      <small [class.d-none]="userBillingForm.get('expyear').valid || userBillingForm.get('expyear').untouched" class="text-danger">**Expiry year is required</small><br>
+
+      <label for="cvv">CVV</label><br>
+      <input [class.is-invalid]="userBillingForm.get('cvv').invalid && userBillingForm.get('cvv').touched"
+             type="text" pattern="[0-9]{3}" id="cvv" class="form-control" formControlName="cvv" >
+      <div *ngIf="userBillingForm.get('cvv').invalid && userBillingForm.get('cvv').touched">
+        <small ngIf="userBillingForm.get('cvv').errors?.required" class="text-danger">*CVV is required</small>
+        <small *ngIf="userBillingForm.get('cvv').errors?.pattern" class="text-danger">CVV is invalid</small>
+      </div>
+      </div>
+
+    </div>
+    <button type="submit" [disabled]="!userBillingForm.valid">Checkout</button>
+  </form>
+</div>

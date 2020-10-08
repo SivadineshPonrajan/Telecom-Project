@@ -1,0 +1,15 @@
+@import "../../../assets/css/style.css";
+@import "../../../assets/css/colors1_dark.css";
+
+.foll{
+  padding: 50px;
+  background-color: #353535;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+}
+
+button{
+  padding: 5px;
+
+}

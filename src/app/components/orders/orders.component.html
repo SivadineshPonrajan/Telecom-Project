@@ -1,0 +1,96 @@
+<div>  <header id="default_header" class="header_style_1">
+  <!-- header bottom -->
+  <div class="header_bottom"  style="background-color: #1C1C1C;">
+    <div class="container" >
+      <div class="row">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+          <!-- logo start -->
+          <div class="logo" style="padding-left: 75px;"><img src="assets/images/it_service/logo.png" alt="logo" /> </div>
+          <!--            <div class="logo"> <a href="it_home.html"><img src="assets/images/logos/it_logo.png" alt="logo" /></a> </div>-->
+          <!-- logo end -->
+        </div>
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+          <!-- menu start -->
+          <div class="menu_side">
+            <div id="navbar_menu">
+              <ul class="first-ul">
+                <li> <a routerLink="/dashboard">Dashboard</a></li>
+                <li> <a  class="active" routerLink="/order">Orders</a></li>
+                <li> <a routerLink="/tickets">Tickets</a></li>
+                <li> <a routerLink="/profile">My Profile</a></li>
+                <li> <a routerLink="/login" class="btn101">logout</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- menu end -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- header bottom end -->
+</header>
+  <hr style="border: 65px solid #039ee3;">
+  <div class="main_heading text_align_center" style="padding-top: 15px;"><h2>AirFone Orders</h2></div>
+<div style="padding-left: 100px;">
+  <div id="prepaidDiv"><h3>PREPAID</h3>
+    <div class="row">
+      <div  *ngFor="let plan of prepaidPlans">
+      <div class="col-sm-6" style="padding: 25px;margin: 25px;">
+        <div class="card" style="width: 300px;">
+          <!--  <img src="" class="card-img-top" alt="...">-->
+          <div class="card-body text-center" style="padding: 50px;">
+            <h4 style="color: black;" class="card-title">{{ plan.name }}</h4>
+            <h4 style="color: black;" class="card-text">
+              Cost: {{ plan.cost }}
+              <br><br>
+              Validity: {{ plan.validity }}
+            </h4><br>
+            <button (click)="recharge(plan.pid)">Add Plan</button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div id="postpaidDiv"><h3>POSTPAID</h3>
+    <div class="row">
+      <div  *ngFor="let plan of postpaidPlans">
+        <div class="col-sm-6" style="padding: 25px;margin: 25px;">
+          <div class="card" style="width: 300px;">
+            <!--  <img src="" class="card-img-top" alt="...">-->
+            <div class="card-body text-center" style="padding: 50px;">
+              <h4 style="color: black;" class="card-title">{{ plan.name }}</h4>
+              <h4 style="color: black;" class="card-text">
+                Cost: {{ plan.cost }}
+                <br><br>
+                Validity: {{ plan.validity }}
+              </h4><br>
+              <button (click)="recharge(plan.pid)">Add Plan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="broadbandDiv"><h3>BROADBAND</h3>
+    <div class="row">
+      <div  *ngFor="let plan of broadbandPlans">
+        <div class="col-sm-6" style="padding: 25px;margin: 25px;">
+          <div class="card" style="width: 300px;">
+            <!--  <img src="" class="card-img-top" alt="...">-->
+            <div class="card-body text-center" style="padding: 50px;">
+              <h4 style="color: black;" class="card-title">{{ plan.name }}</h4>
+              <h4 style="color: black;" class="card-text">
+                Cost: {{ plan.cost }}
+                <br><br>
+                Validity: {{ plan.validity }}
+              </h4><br>
+              <button (click)="recharge(plan.pid)">Add Plan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

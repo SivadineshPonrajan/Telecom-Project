@@ -1,0 +1,79 @@
+<div class="whole">
+  <header id="default_header" class="header_style_1">
+  <!-- header bottom -->
+  <div class="header_bottom"  style="background-color: #1C1C1C;">
+    <div class="container" >
+      <div class="row">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+          <!-- logo start -->
+          <div class="logo" style="padding-left: 75px;"><img src="assets/images/it_service/logo.png" alt="logo" /> </div>
+          <!--            <div class="logo"> <a href="it_home.html"><img src="assets/images/logos/it_logo.png" alt="logo" /></a> </div>-->
+          <!-- logo end -->
+        </div>
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+          <!-- menu start -->
+          <div class="menu_side">
+            <div id="navbar_menu">
+              <ul class="first-ul">
+                <li> <a routerLink="/dashboard">Dashboard</a></li>
+                <li> <a routerLink="/order">Orders</a></li>
+                <li> <a class="active" routerLink="/tickets">Tickets</a></li>
+                <li> <a routerLink="/profile">My Profile</a></li>
+                <li> <a routerLink="/login" class="btn101">logout</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- menu end -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- header bottom end -->
+</header>
+  <hr style="border: 65px solid #039ee3;">
+  <br>
+  <div class="full">
+    <div class="main_heading text_align_center">
+      <h2>My Tickets History</h2>
+    </div>
+  </div>
+  <div class="col-md-5 mx-auto row">
+<table>
+  <tr *ngFor="let emp of allTickets">
+    <td>{{ emp.ticketId }}</td>
+    <td>{{ emp.dateTicketRaised }}</td>
+    <td>{{ emp.planCategory }}</td>
+    <td>{{ emp.ticket }}</td>
+    <td>{{ emp.status }}</td>
+  </tr>
+</table>
+  </div>
+  <hr style="border: 1px solid #039ee3; margin-top: 85px;">
+  <div>
+    <hr>
+    <br><br>
+    <div class="full">
+      <div class="main_heading text_align_center">
+        <h2>Raise a Ticket</h2>
+      </div>
+    </div>
+    <div class="col-md-2 mx-auto foll">
+      <div *ngIf="myCategory">
+        <label for="category">Category:</label><br>
+        <select id="category" [(ngModel)]="listVal"><br>
+          <option value="" selected>Select a value</option>
+          <option *ngFor="let cat of myCategory" [value]="cat">
+            {{cat}}
+          </option>
+        </select>
+      </div>
+      <br>
+      <br>
+      <label for="desc">Description</label><br>
+      <textarea  rows="5" cols="40" [(ngModel)]="ticket" id="desc" name="description" placeholder="Please discribe your query here"></textarea>
+      <br>
+      <br>
+      <button (click)="tickets()">Raise Ticket</button>
+    </div>
+  </div>
+</div>

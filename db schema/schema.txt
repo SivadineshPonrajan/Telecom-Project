@@ -1,0 +1,30 @@
+create database airfone;
+
+use airfone;
+
+create table loginDetails(phone varchar(10) unique,email varchar(100),otp varchar(10));
+
+insert into loginDetails(phone,email,otp) values('8610451847','sivadinesh107@gmail.com','');
+
+create table customerDetails(custName varchar(30),dob date,address varchar(100), gender varchar(20), email varchar(100),phone varchar(20), foreign key(phone) references loginDetails(phone));
+
+insert into customerDetails values("Sivadinesh","2000-04-23","Tamilnadu","Male","sivadinesh107@gmail.com","8610451847"),("Tushar","1998-11-2","karnataka","Male","tushar123@gmail.com","7411359771");
+
+create table plans(planId int primary key,planName varchar(50),planCost int,planValidity int,planCategory varchar(50));
+
+insert into plans(planId, planName, planCost, planValidity, planCategory) values(1,'100Rs Full talktime',100, 28,'prepaid'),
+(2,'200Rs Full talktime',200,48,'prepaid'), (3,'300Rs Full talktime',300,84,'prepaid'), (4,'Small post plan',600,28,'postpaid'), 
+(5,'Budget post plan',1000,48,'postpaid'),(6,'Unlimited post plan',1500,84,'postpaid'),(7,'Small fiber plan',700,28,'broadband'),
+(8,'Budget fiber Data',1400,48,'broadband'),(9,'Unlimited fiber plan',2300,84,'broadband'); 
+
+create table tickets(ticketId int primary key auto_increment,dateTicketRaised datetime,phone varchar(10),planCategory varchar(50),ticket varchar(1000),
+status boolean,foreign key(phone) references logindetails(phone));  
+
+insert into tickets(dateTicketRaised,phone,planCategory,ticket,status) values(now(),'8610451847','postpaid','I have network Issue',true);
+
+create table currentPlan(phone varchar(10),planId int,starter datetime,foreign key(phone) references loginDetails(phone),foreign key(planId) references plans(planId));
+
+insert into currentPlan(phone,planId,starter) values(8610451847,1,now());
+insert into currentPlan(phone,planId,starter) values(8610451847,8,now());
+
+create table newcustomers(custName varchar(30),dob date,address varchar(100), gender varchar(20), email varchar(100),phone varchar(20), status int, foreign key(phone) references loginDetails(phone));
